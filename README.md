@@ -1,2 +1,2 @@
 # Oentities
-Test
+Oentities is ORM Framework for application in .NET.
