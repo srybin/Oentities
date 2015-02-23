@@ -7,9 +7,9 @@ using Oentities.Extensions;
 
 namespace Oentities.Configurations
 {
-    public class EntityConfiguration<TEntity> : IEntityConfiguration
+    public abstract class EntityConfiguration<TEntity> : IEntityConfiguration
     {
-        public EntityConfiguration()
+        protected EntityConfiguration()
         {
             EntityType = typeof(TEntity);
             TableName = string.Concat(EntityType.Name, "s");

@@ -11,7 +11,7 @@ namespace Oentities.Tests.Configurations
     public class OneToManyRelationshipConfigurationsTests : RelationshipConfigurationsTestsBase
     {
         [Test]
-        public void TestOneToManyWithoutInversPropertyConfiguration()
+        public void OneToManyWithoutInversPropertyConfigurationTest()
         {
             var property = new OwnerConfiguration().Properties.OfType<OneToManyWithoutInversPropertyRelationshipProperty>()
                 .FirstOrDefault();
@@ -22,9 +22,8 @@ namespace Oentities.Tests.Configurations
             AssertPropertyType<ICollection<OfflineExcerptNormativeTopic>>(property, RelationshipSide.One);
         }
 
-
         [Test]
-        public void TestManyToOneWithoutInversPropertyConfiguration()
+        public void ManyToOneWithoutInversPropertyConfigurationTest()
         {
             var property = new OilRigConfiguration().Properties.OfType<ManyToOneWithoutInversPropertyRelationshipProperty>()
                 .FirstOrDefault();
@@ -36,7 +35,7 @@ namespace Oentities.Tests.Configurations
         }
 
         [Test]
-        public void TestOneToManyWithInversPropertyConfiguration()
+        public void OneToManyWithInversPropertyConfigurationTest()
         {
             var property = new UniversityConfiguration().Properties.OfType<OneToManyWithInversPropertyRelationshipProperty>()
                 .FirstOrDefault();
@@ -48,7 +47,7 @@ namespace Oentities.Tests.Configurations
         }
 
         [Test]
-        public void TestManyToOneWithInversPropertyConfiguration()
+        public void ManyToOneWithInversPropertyConfigurationTest()
         {
             var property = new LectorConfiguration().Properties.OfType<ManyToOneWithInversPropertyRelationshipProperty>()
                 .FirstOrDefault();

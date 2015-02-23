@@ -73,6 +73,9 @@
     <Compile Include="EntityConfigurations\OwnerConfiguration.cs" />
     <Compile Include="Configurations\OneToManyRelationshipConfigurationsTests.cs" />
     <Compile Include="EntityConfigurations\UniversityConfiguration.cs" />
+    <Compile Include="Initialization\DefaultModelInitializerTests.cs" />
+    <Compile Include="Initialization\ModelInitializerWithSetAllNullInverseReferencePropertiesDecoratorTests.cs" />
+    <Compile Include="Initialization\ModelInitializerWithOnlyUniqueTypesDecoratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -38,9 +38,15 @@
     <Compile Include="Configurations\IEntityConfiguration.cs" />
     <Compile Include="Configurations\Property.cs" />
     <Compile Include="Configurations\PropertyConfiguration.cs" />
+    <Compile Include="Initialization\DefaultModelInitializer.cs" />
     <Compile Include="Extensions\ExpressionExtensions.cs" />
     <Compile Include="Extensions\PropertyExtensions.cs" />
+    <Compile Include="Initialization\EntityConfigurationEqualityComparerByEntityType.cs" />
+    <Compile Include="Initialization\IModelInitializer.cs" />
+    <Compile Include="Initialization\ModelInitializerWithSetAllNullInverseReferencePropertiesDecorator.cs" />
+    <Compile Include="Initialization\ModelInitializerWithOnlyUniqueTypesDecorator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
