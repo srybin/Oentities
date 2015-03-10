@@ -18,18 +18,26 @@ namespace Oentities.Configurations
 
         public void WithMany()
         {
-            if (_property.PropertyType.IsPrimitiveType() || _property.PropertyType.IsCollectionType())
+            if (_property.PropertyType.IsPrimitiveType())
                 throw new Exception("Property type is...");
 
-            _configuration.Properties.Add(RelationshipProperty.Create<ManyToOneWithoutInversPropertyRelationshipProperty, OneToManyWithInversPropertyRelationshipProperty>(_property, null));
+            var property = _property.PropertyType.IsCollectionType()
+                ? RelationshipProperty.Create<ManyToManyWithoutInversPropertyRelationshipProperty, ManyToManyWithInversPropertyRelationshipProperty>(_property, null)
+                : RelationshipProperty.Create<ManyToOneWithoutInversPropertyRelationshipProperty, OneToManyWithInversPropertyRelationshipProperty>(_property, null);
+
+            _configuration.Properties.Add(property);
         }
 
         public void WithMany<TProperty>(Expression<Func<TEntity, TProperty>> property)
         {
-            if (_property.PropertyType.IsPrimitiveType() || _property.PropertyType.IsCollectionType())
+            if (_property.PropertyType.IsPrimitiveType())
                 throw new Exception("Property type is...");
 
-            _configuration.Properties.Add(RelationshipProperty.Create<ManyToOneWithInversPropertyRelationshipProperty, OneToManyWithInversPropertyRelationshipProperty>(_property, property.GetPropertyInfoBy()));
+            var relationshipProperty = _property.PropertyType.IsCollectionType()
+                ? RelationshipProperty.Create<ManyToManyWithInversPropertyRelationshipProperty, ManyToManyWithInversPropertyRelationshipProperty>(_property, property.GetPropertyInfoBy())
+                : RelationshipProperty.Create<ManyToOneWithInversPropertyRelationshipProperty, OneToManyWithInversPropertyRelationshipProperty>(_property, property.GetPropertyInfoBy());
+
+            _configuration.Properties.Add(relationshipProperty);
         }
 
         public void WithOne()

@@ -56,4 +56,12 @@ namespace Oentities.Configurations
     public class ManyToOneWithInversPropertyRelationshipProperty : RelationshipProperty
     {
     }
+
+    public class ManyToManyWithoutInversPropertyRelationshipProperty : RelationshipProperty
+    {
+    }
+
+    public class ManyToManyWithInversPropertyRelationshipProperty : RelationshipProperty
+    {
+    }
 }

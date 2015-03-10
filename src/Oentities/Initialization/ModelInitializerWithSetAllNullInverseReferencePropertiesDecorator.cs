@@ -17,9 +17,11 @@ namespace Oentities.Initialization
         public IReadOnlyCollection<IEntityConfiguration> InitModelConfigurations(Assembly assembly)
         {
             var eConfigs = _modelInitializer.InitModelConfigurations(assembly);
-            var properties = eConfigs.SelectMany(c => c.Properties);
 
-            foreach (var p in properties.OfType<OneToManyWithoutInversPropertyRelationshipProperty>())
+            var properties = eConfigs.SelectMany(c => c.Properties)
+                .Where(p => p is OneToManyWithoutInversPropertyRelationshipProperty || p is ManyToManyWithoutInversPropertyRelationshipProperty);
+
+            foreach (var p in properties.OfType<RelationshipProperty>())
             {
                 var eConfig = eConfigs.First(c => c.EntityType == p.InversProperty.EntityType);
                 eConfig.Properties.Add(p.InversProperty);

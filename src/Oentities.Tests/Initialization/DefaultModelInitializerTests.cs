@@ -13,7 +13,7 @@ namespace Oentities.Tests.Initialization
         [Test]
         public void ModelConfigurationsConsistsOfRightAmountAndHasNecessaryTypesTest()
         {
-            const int eConfigsCount = 6;
+            const int eConfigsCount = 10;
 
             var eConfigs = new DefaultModelInitializer().InitModelConfigurations(GetType().Assembly);
 

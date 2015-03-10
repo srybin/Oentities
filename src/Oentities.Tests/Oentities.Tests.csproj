@@ -58,9 +58,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Configurations\ManyToManyRelationshipConfigurationsTests.cs" />
     <Compile Include="Configurations\RelationshipConfigurationsTestsBase.cs" />
+    <Compile Include="Entities\Conference.cs" />
+    <Compile Include="Entities\Course.cs" />
     <Compile Include="Entities\Lector.cs" />
+    <Compile Include="Entities\PresentationMaterial.cs" />
+    <Compile Include="Entities\Student.cs" />
     <Compile Include="Entities\University.cs" />
+    <Compile Include="EntityConfigurations\ConferenceConfiguration.cs" />
+    <Compile Include="EntityConfigurations\CourseConfiguration.cs" />
     <Compile Include="EntityConfigurations\LectorConfiguration.cs" />
     <Compile Include="EntityConfigurations\OfflineExcerptNormativeTopicConfiguration.cs" />
     <Compile Include="EntityConfigurations\OilfieldConfiguration.cs" />
@@ -72,6 +79,8 @@
     <Compile Include="Entities\Owner.cs" />
     <Compile Include="EntityConfigurations\OwnerConfiguration.cs" />
     <Compile Include="Configurations\OneToManyRelationshipConfigurationsTests.cs" />
+    <Compile Include="EntityConfigurations\PresentationMaterialConfiguration.cs" />
+    <Compile Include="EntityConfigurations\StudentConfiguration.cs" />
     <Compile Include="EntityConfigurations\UniversityConfiguration.cs" />
     <Compile Include="Initialization\DefaultModelInitializerTests.cs" />
     <Compile Include="Initialization\ModelInitializerWithSetAllNullInverseReferencePropertiesDecoratorTests.cs" />
