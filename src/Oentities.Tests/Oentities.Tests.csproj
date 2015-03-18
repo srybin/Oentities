@@ -58,6 +58,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ChangeTracking\ChangeTrackerTests.cs" />
     <Compile Include="Configurations\ManyToManyRelationshipConfigurationsTests.cs" />
     <Compile Include="Configurations\RelationshipConfigurationsTestsBase.cs" />
     <Compile Include="Entities\Conference.cs" />

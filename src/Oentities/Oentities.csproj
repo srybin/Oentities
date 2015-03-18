@@ -34,6 +34,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeTracking\ChangeTracker.cs" />
+    <Compile Include="ChangeTracking\EntityEntry.cs" />
     <Compile Include="Configurations\EntityConfiguration.cs" />
     <Compile Include="Configurations\IEntityConfiguration.cs" />
     <Compile Include="Configurations\Property.cs" />
