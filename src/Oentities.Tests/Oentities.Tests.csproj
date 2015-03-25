@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="ChangeTracking\ChangeTrackerTests.cs" />
     <Compile Include="Configurations\ManyToManyRelationshipConfigurationsTests.cs" />
+    <Compile Include="Configurations\ModelBuilderTests.cs" />
     <Compile Include="Configurations\RelationshipConfigurationsTestsBase.cs" />
     <Compile Include="Entities\Conference.cs" />
     <Compile Include="Entities\Course.cs" />
@@ -83,9 +84,6 @@
     <Compile Include="EntityConfigurations\PresentationMaterialConfiguration.cs" />
     <Compile Include="EntityConfigurations\StudentConfiguration.cs" />
     <Compile Include="EntityConfigurations\UniversityConfiguration.cs" />
-    <Compile Include="Initialization\DefaultModelInitializerTests.cs" />
-    <Compile Include="Initialization\ModelInitializerWithSetAllNullInverseReferencePropertiesDecoratorTests.cs" />
-    <Compile Include="Initialization\ModelInitializerWithOnlyUniqueTypesDecoratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

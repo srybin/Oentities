@@ -1,31 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Oentities.ChangeTracking;
 using Oentities.Configurations;
-using Oentities.Initialization;
 
 namespace Oentities
 {
-    public class UnitOfWork
+    public abstract class UnitOfWork
     {
-        private static IModelInitializer _modelInitializer;
         private static IDictionary<Type, IEntityConfiguration> _entityConfigurations;
+        private readonly IModelBuilderWithSetAllNullInverseReference _modelBuilder;
         private readonly ChangeTracker _changeTracker;
 
-        public UnitOfWork()
+        protected UnitOfWork()
         {
             _changeTracker = new ChangeTracker();
+            _modelBuilder = new ModelBuilder();
 
-            _modelInitializer =
-                new ModelInitializerWithSetAllNullInverseReferencePropertiesDecorator(
-                    new ModelInitializerWithOnlyUniqueTypesDecorator(new DefaultModelInitializer()));
-        }
-
-        public static void InitModelConfigurations(Assembly assembly)
-        {
-            _entityConfigurations = _modelInitializer.InitModelConfigurations(assembly).ToDictionary(c => c.EntityType);
+            if (_entityConfigurations != null) return;
+            ModelInit(_modelBuilder);
+            _modelBuilder.SetAllNullInverseReferenceProperties();
+            _entityConfigurations = _modelBuilder.Configurations.ToDictionary(c => c.EntityType);
         }
 
         public void MarkNew(object entity)
@@ -47,5 +42,7 @@ namespace Oentities
         {
             _changeTracker.Attach(entity, EntityState.Clean);
         }
+
+        protected abstract void ModelInit(IModelBuilder modelBuilder);
     }
 }

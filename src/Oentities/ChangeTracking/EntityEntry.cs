@@ -14,6 +14,6 @@ namespace Oentities.ChangeTracking
     {
         public object Entity { get; set; }
         public EntityState State { get; set; }
-        public IDictionary<string, object> ForforeignProperties { get; set; } 
+        public IDictionary<string, object> ForeignProperties { get; set; } 
     }
 }

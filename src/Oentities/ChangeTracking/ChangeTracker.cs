@@ -13,7 +13,7 @@ namespace Oentities.ChangeTracking
             {
                 _identityMap.Add(entity, new EntityEntry
                 {
-                    Entity = entity, ForforeignProperties = new Dictionary<string, object>()
+                    Entity = entity, ForeignProperties = new Dictionary<string, object>()
                 });
             }
 
