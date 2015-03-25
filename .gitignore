@@ -1,5 +1,7 @@
 src/Oentities.sln.DotSettings.user
 src/Oentities.v12.suo
-src/*/obj
-src/*/bin
+*/*/obj
+*/*/bin
 src/packages
+build
+lib
