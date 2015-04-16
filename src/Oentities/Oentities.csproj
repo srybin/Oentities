@@ -36,15 +36,23 @@
   <ItemGroup>
     <Compile Include="ChangeTracking\ChangeTracker.cs" />
     <Compile Include="ChangeTracking\EntityEntry.cs" />
+    <Compile Include="ChangeTracking\IChangeTracker.cs" />
+    <Compile Include="ChangeTracking\IEntityEntrySetter.cs" />
+    <Compile Include="ChangeTracking\EntityEntrySetter.cs" />
     <Compile Include="Configurations\EntityConfiguration.cs" />
     <Compile Include="Configurations\IEntityConfiguration.cs" />
     <Compile Include="Configurations\IModelBuilder.cs" />
     <Compile Include="Configurations\IModelBuilderWithSetAllNullInverseReference.cs" />
+    <Compile Include="Configurations\IPropertyFromEntityAccessor.cs" />
+    <Compile Include="Configurations\IPopertyFromEntityAccessorFactory.cs" />
     <Compile Include="Configurations\ModelBuilder.cs" />
+    <Compile Include="Configurations\PropertyFromEntityAccessor.cs" />
+    <Compile Include="Configurations\PopertyFromEntityAccessorFactory.cs" />
     <Compile Include="Configurations\Property.cs" />
     <Compile Include="Configurations\PropertyConfiguration.cs" />
     <Compile Include="Extensions\ExpressionExtensions.cs" />
     <Compile Include="Extensions\PropertyExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>

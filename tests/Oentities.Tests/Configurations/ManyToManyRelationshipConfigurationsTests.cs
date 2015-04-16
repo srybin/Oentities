@@ -11,25 +11,25 @@ namespace Oentities.Tests.Configurations
     public class ManyToManyRelationshipConfigurationsTests : RelationshipConfigurationsTestsBase
     {
         [Test]
-        public void ManyToManyWithoutInversPropertyConfigurationTest()
+        public void ManyToManyWithoutInversePropertyConfigurationTest()
         {
-            var property = new CourseConfiguration().Properties.OfType<ManyToManyWithoutInversPropertyRelationshipProperty>()
+            var property = new CourseConfiguration().Properties.OfType<ManyToManyWithoutInversePropertyRelationshipProperty>()
                 .FirstOrDefault();
 
             AssertRelationshipConfigurationExist(property, false);
-            AssertInversPropertyConfigurationType<ManyToManyWithInversPropertyRelationshipProperty>(property);
+            AssertInversePropertyConfigurationType<ManyToManyWithInversePropertyRelationshipProperty>(property);
             AssertTypesOfBothSides<Course, Student>(property, RelationshipSide.Many, RelationshipSide.Many);
             AssertPropertyType<ICollection<Student>>(property, RelationshipSide.Many);
         }
 
         [Test]
-        public void ManyToManyWithInversPropertyConfigurationTest()
+        public void ManyToManyWithInversePropertyConfigurationTest()
         {
-            var property = new ConferenceConfiguration().Properties.OfType<ManyToManyWithInversPropertyRelationshipProperty>()
+            var property = new ConferenceConfiguration().Properties.OfType<ManyToManyWithInversePropertyRelationshipProperty>()
                 .FirstOrDefault();
 
             AssertRelationshipConfigurationExist(property, true);
-            AssertInversPropertyConfigurationType<ManyToManyWithInversPropertyRelationshipProperty>(property);
+            AssertInversePropertyConfigurationType<ManyToManyWithInversePropertyRelationshipProperty>(property);
             AssertTypesOfBothSides<Conference, PresentationMaterial>(property, RelationshipSide.Many, RelationshipSide.Many);
             AssertPropertyType<ICollection<PresentationMaterial>>(property, RelationshipSide.Many);
         }

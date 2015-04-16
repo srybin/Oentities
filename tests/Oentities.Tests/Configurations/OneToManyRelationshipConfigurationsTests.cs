@@ -11,49 +11,49 @@ namespace Oentities.Tests.Configurations
     public class OneToManyRelationshipConfigurationsTests : RelationshipConfigurationsTestsBase
     {
         [Test]
-        public void OneToManyWithoutInversPropertyConfigurationTest()
+        public void OneToManyWithoutInversePropertyConfigurationTest()
         {
-            var property = new OwnerConfiguration().Properties.OfType<OneToManyWithoutInversPropertyRelationshipProperty>()
+            var property = new OwnerConfiguration().Properties.OfType<OneToManyWithoutInversePropertyRelationshipProperty>()
                 .FirstOrDefault();
 
             AssertRelationshipConfigurationExist(property, false);
-            AssertInversPropertyConfigurationType<ManyToOneWithInversPropertyRelationshipProperty>(property);
+            AssertInversePropertyConfigurationType<ManyToOneWithInversePropertyRelationshipProperty>(property);
             AssertTypesOfBothSides<Owner, OfflineExcerptNormativeTopic>(property, RelationshipSide.One, RelationshipSide.Many);
             AssertPropertyType<ICollection<OfflineExcerptNormativeTopic>>(property, RelationshipSide.One);
         }
 
         [Test]
-        public void ManyToOneWithoutInversPropertyConfigurationTest()
+        public void ManyToOneWithoutInversePropertyConfigurationTest()
         {
-            var property = new OilRigConfiguration().Properties.OfType<ManyToOneWithoutInversPropertyRelationshipProperty>()
+            var property = new OilRigConfiguration().Properties.OfType<ManyToOneWithoutInversePropertyRelationshipProperty>()
                 .FirstOrDefault();
 
             AssertRelationshipConfigurationExist(property, false);
-            AssertInversPropertyConfigurationType<OneToManyWithInversPropertyRelationshipProperty>(property);
+            AssertInversePropertyConfigurationType<OneToManyWithInversePropertyRelationshipProperty>(property);
             AssertTypesOfBothSides<OilRig, Oilfield>(property, RelationshipSide.Many, RelationshipSide.One);
             AssertPropertyType<Oilfield>(property, RelationshipSide.Many);
         }
 
         [Test]
-        public void OneToManyWithInversPropertyConfigurationTest()
+        public void OneToManyWithInversePropertyConfigurationTest()
         {
-            var property = new UniversityConfiguration().Properties.OfType<OneToManyWithInversPropertyRelationshipProperty>()
+            var property = new UniversityConfiguration().Properties.OfType<OneToManyWithInversePropertyRelationshipProperty>()
                 .FirstOrDefault();
 
             AssertRelationshipConfigurationExist(property, true);
-            AssertInversPropertyConfigurationType<ManyToOneWithInversPropertyRelationshipProperty>(property);
+            AssertInversePropertyConfigurationType<ManyToOneWithInversePropertyRelationshipProperty>(property);
             AssertTypesOfBothSides<University, Lector>(property, RelationshipSide.One, RelationshipSide.Many);
             AssertPropertyType<ICollection<Lector>>(property, RelationshipSide.One);
         }
 
         [Test]
-        public void ManyToOneWithInversPropertyConfigurationTest()
+        public void ManyToOneWithInversePropertyConfigurationTest()
         {
-            var property = new LectorConfiguration().Properties.OfType<ManyToOneWithInversPropertyRelationshipProperty>()
+            var property = new LectorConfiguration().Properties.OfType<ManyToOneWithInversePropertyRelationshipProperty>()
                 .FirstOrDefault();
 
             AssertRelationshipConfigurationExist(property, true);
-            AssertInversPropertyConfigurationType<OneToManyWithInversPropertyRelationshipProperty>(property);
+            AssertInversePropertyConfigurationType<OneToManyWithInversePropertyRelationshipProperty>(property);
             AssertTypesOfBothSides<Lector, University>(property, RelationshipSide.Many, RelationshipSide.One);
             AssertPropertyType<University>(property, RelationshipSide.Many);
         }

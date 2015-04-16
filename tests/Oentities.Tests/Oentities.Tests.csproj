@@ -59,6 +59,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ChangeTracking\ChangeTrackerTests.cs" />
+    <Compile Include="ChangeTracking\EntityEntrySetterTests.cs" />
     <Compile Include="Configurations\ManyToManyRelationshipConfigurationsTests.cs" />
     <Compile Include="Configurations\ModelBuilderTests.cs" />
     <Compile Include="Configurations\RelationshipConfigurationsTestsBase.cs" />

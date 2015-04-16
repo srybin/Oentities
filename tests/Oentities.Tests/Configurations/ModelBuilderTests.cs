@@ -49,7 +49,7 @@ namespace Oentities.Tests.Configurations
         }
 
         [Test]
-        public void ForAllOneToManyWithoutInversPropertyConfigurationSetInversPropertyConfiguration()
+        public void ForAllOneToManyWithoutInversePropertyConfigurationSetInversPropertyConfiguration()
         {
             var builder = new ModelBuilder();
 
@@ -57,13 +57,13 @@ namespace Oentities.Tests.Configurations
             builder.SetAllNullInverseReferenceProperties();
 
             var eConfig = builder.Configurations.OfType<OfflineExcerptNormativeTopicConfiguration>().First();
-            var property = eConfig.Properties.OfType<ManyToOneWithInversPropertyRelationshipProperty>().FirstOrDefault();
+            var property = eConfig.Properties.OfType<ManyToOneWithInversePropertyRelationshipProperty>().FirstOrDefault();
 
             Assert.IsNotNull(property, "Many-to-one property configuration is required.");
         }
 
         [Test]
-        public void ForAllManyToManyWithoutInversPropertyConfigurationSetInversPropertyConfiguration()
+        public void ForAllManyToManyWithoutInversePropertyConfigurationSetInversPropertyConfiguration()
         {
             var builder = new ModelBuilder();
 
@@ -71,7 +71,7 @@ namespace Oentities.Tests.Configurations
             builder.SetAllNullInverseReferenceProperties();
 
             var eConfig = builder.Configurations.OfType<StudentConfiguration>().First();
-            var property = eConfig.Properties.OfType<ManyToManyWithInversPropertyRelationshipProperty>().FirstOrDefault();
+            var property = eConfig.Properties.OfType<ManyToManyWithInversePropertyRelationshipProperty>().FirstOrDefault();
 
             Assert.IsNotNull(property, "Many-to-many property configuration is required.");
         }

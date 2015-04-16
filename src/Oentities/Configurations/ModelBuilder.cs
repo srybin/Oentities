@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Oentities.Configurations
 {
-    public class ModelBuilder : IModelBuilder, IModelBuilderWithSetAllNullInverseReference
+    public class ModelBuilder : IModelBuilderWithSetAllNullInverseReference
     {
         private readonly ICollection<IEntityConfiguration> _configurations = new Collection<IEntityConfiguration>();
 
@@ -51,13 +51,13 @@ namespace Oentities.Configurations
         public void SetAllNullInverseReferenceProperties()
         {
             var properties = _configurations.SelectMany(c => c.Properties)
-                .Where(p => p is OneToManyWithoutInversPropertyRelationshipProperty ||
-                            p is ManyToManyWithoutInversPropertyRelationshipProperty);
+                .Where(p => p is OneToManyWithoutInversePropertyRelationshipProperty ||
+                            p is ManyToManyWithoutInversePropertyRelationshipProperty);
 
             foreach (var p in properties.OfType<RelationshipProperty>())
             {
-                var eConfig = _configurations.First(c => c.EntityType == p.InversProperty.EntityType);
-                eConfig.Properties.Add(p.InversProperty);
+                var eConfig = _configurations.First(c => c.EntityType == p.InverseProperty.EntityType);
+                eConfig.Properties.Add(p.InverseProperty);
             }
         }
 

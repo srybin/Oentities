@@ -5,20 +5,20 @@ namespace Oentities.Tests.Configurations
 {
     public abstract class RelationshipConfigurationsTestsBase
     {
-        protected static void AssertRelationshipConfigurationExist(RelationshipProperty property, bool inversPropertyExist)
+        protected static void AssertRelationshipConfigurationExist(RelationshipProperty property, bool inversePropertyExist)
         {
             Assert.IsNotNull(property, "Relationship property is no exist.");
-            Assert.IsNotNull(property.InversProperty, "Invers property configuration is required.");
+            Assert.IsNotNull(property.InverseProperty, "Inverse property configuration is required.");
 
-            if (inversPropertyExist)
-                Assert.IsNotNull(property.InversProperty.Info, "Invers property is required.");
+            if (inversePropertyExist)
+                Assert.IsNotNull(property.InverseProperty.Info, "Inverse property is required.");
             else
-                Assert.IsNull(property.InversProperty.Info, "Invers property must be missing.");
+                Assert.IsNull(property.InverseProperty.Info, "Inverse property must be missing.");
         }
 
-        protected static void AssertInversPropertyConfigurationType<TInversRelationshipProperty>(RelationshipProperty property)
+        protected static void AssertInversePropertyConfigurationType<TInverseRelationshipProperty>(RelationshipProperty property)
         {
-            Assert.IsInstanceOf<TInversRelationshipProperty>(property.InversProperty, "Invers property has an incorrect type.");
+            Assert.IsInstanceOf<TInverseRelationshipProperty>(property.InverseProperty, "Inverse property has an incorrect type.");
         }
 
         protected static void AssertTypesOfBothSides<T1, T2>(
@@ -31,7 +31,7 @@ namespace Oentities.Tests.Configurations
             var errorForT2 = string.Format(errorFormat, secondSideType);
 
             Assert.AreEqual(typeof(T1), property.EntityType, errorForT1);
-            Assert.AreEqual(typeof(T2), property.InversProperty.EntityType, errorForT2);
+            Assert.AreEqual(typeof(T2), property.InverseProperty.EntityType, errorForT2);
         }
 
         protected static void AssertPropertyType<T>(RelationshipProperty property, string fromSide)

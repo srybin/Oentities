@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Oentities.ChangeTracking
 {
-    public class ChangeTracker
+    public class ChangeTracker : IChangeTracker
     {
         private readonly IDictionary<object, EntityEntry> _identityMap = new Dictionary<object, EntityEntry>();
 
@@ -13,7 +14,7 @@ namespace Oentities.ChangeTracking
             {
                 _identityMap.Add(entity, new EntityEntry
                 {
-                    Entity = entity, ForeignProperties = new Dictionary<string, object>()
+                    Entity = entity, ExternalLinks = new Dictionary<string, object>()
                 });
             }
 
@@ -23,6 +24,11 @@ namespace Oentities.ChangeTracking
         public EntityEntry Entry(object entity)
         {
             return _identityMap.ContainsKey(entity) ? _identityMap[entity] : null;
+        }
+
+        public IReadOnlyDictionary<object, EntityEntry> Entries
+        {
+            get { return new ReadOnlyDictionary<object, EntityEntry>(_identityMap); }
         }
 
         public bool HasChanges()

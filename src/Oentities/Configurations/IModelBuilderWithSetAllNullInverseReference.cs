@@ -1,6 +1,6 @@
 ﻿namespace Oentities.Configurations
 {
-    internal interface IModelBuilderWithSetAllNullInverseReference : IModelBuilder
+    interface IModelBuilderWithSetAllNullInverseReference : IModelBuilder
     {
         void SetAllNullInverseReferenceProperties();
     }

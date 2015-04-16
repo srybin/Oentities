@@ -22,8 +22,8 @@ namespace Oentities.Configurations
                 throw new Exception("Property type is...");
 
             var property = _property.PropertyType.IsCollectionType()
-                ? RelationshipProperty.Create<ManyToManyWithoutInversPropertyRelationshipProperty, ManyToManyWithInversPropertyRelationshipProperty>(_property, null)
-                : RelationshipProperty.Create<ManyToOneWithoutInversPropertyRelationshipProperty, OneToManyWithInversPropertyRelationshipProperty>(_property, null);
+                ? RelationshipProperty.Create<ManyToManyWithoutInversePropertyRelationshipProperty, ManyToManyWithInversePropertyRelationshipProperty>(_property, null)
+                : RelationshipProperty.Create<ManyToOneWithoutInversePropertyRelationshipProperty, OneToManyWithInversePropertyRelationshipProperty>(_property, null);
 
             _configuration.Properties.Add(property);
         }
@@ -34,8 +34,8 @@ namespace Oentities.Configurations
                 throw new Exception("Property type is...");
 
             var relationshipProperty = _property.PropertyType.IsCollectionType()
-                ? RelationshipProperty.Create<ManyToManyWithInversPropertyRelationshipProperty, ManyToManyWithInversPropertyRelationshipProperty>(_property, property.GetPropertyInfoBy())
-                : RelationshipProperty.Create<ManyToOneWithInversPropertyRelationshipProperty, OneToManyWithInversPropertyRelationshipProperty>(_property, property.GetPropertyInfoBy());
+                ? RelationshipProperty.Create<ManyToManyWithInversePropertyRelationshipProperty, ManyToManyWithInversePropertyRelationshipProperty>(_property, property.GetPropertyInfoBy())
+                : RelationshipProperty.Create<ManyToOneWithInversePropertyRelationshipProperty, OneToManyWithInversePropertyRelationshipProperty>(_property, property.GetPropertyInfoBy());
 
             _configuration.Properties.Add(relationshipProperty);
         }
@@ -45,7 +45,7 @@ namespace Oentities.Configurations
             if (_property.PropertyType.IsPrimitiveType() || !_property.PropertyType.IsCollectionType())
                 throw new Exception("Property type no collection");
 
-            _configuration.Properties.Add(RelationshipProperty.Create<OneToManyWithoutInversPropertyRelationshipProperty, ManyToOneWithInversPropertyRelationshipProperty>(_property, null));
+            _configuration.Properties.Add(RelationshipProperty.Create<OneToManyWithoutInversePropertyRelationshipProperty, ManyToOneWithInversePropertyRelationshipProperty>(_property, null));
         }
 
         public void WithOne<TProperty>(Expression<Func<TEntity, TProperty>> property)
@@ -53,7 +53,7 @@ namespace Oentities.Configurations
             if (_property.PropertyType.IsPrimitiveType() || !_property.PropertyType.IsCollectionType())
                 throw new Exception("Property type is no collection");
 
-            _configuration.Properties.Add(RelationshipProperty.Create<OneToManyWithInversPropertyRelationshipProperty, ManyToOneWithInversPropertyRelationshipProperty>(_property, property.GetPropertyInfoBy()));
+            _configuration.Properties.Add(RelationshipProperty.Create<OneToManyWithInversePropertyRelationshipProperty, ManyToOneWithInversePropertyRelationshipProperty>(_property, property.GetPropertyInfoBy()));
         }
     }
 }

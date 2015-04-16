@@ -14,15 +14,15 @@ namespace Oentities.Configurations
     {
     }
 
-    public class RelationshipProperty : Property
+    public abstract class RelationshipProperty : Property
     {
-        public RelationshipProperty InversProperty { get; set; }
+        public RelationshipProperty InverseProperty { get; set; }
 
-        public static RelationshipProperty Create<TRelationshipProperty, TInversRelationshipProperty>(
+        public static RelationshipProperty Create<TRelationshipProperty, TInverseRelationshipProperty>(
             PropertyInfo property, 
-            PropertyInfo inversProperty)
+            PropertyInfo inverseProperty)
             where TRelationshipProperty : RelationshipProperty, new()
-            where TInversRelationshipProperty : RelationshipProperty, new()
+            where TInverseRelationshipProperty : RelationshipProperty, new()
         {
             var relationship = new TRelationshipProperty
             {
@@ -30,38 +30,38 @@ namespace Oentities.Configurations
                 EntityType = property.DeclaringType
             };
 
-            relationship.InversProperty = new TInversRelationshipProperty
+            relationship.InverseProperty = new TInverseRelationshipProperty
             {
-                Info = inversProperty,
+                Info = inverseProperty,
                 EntityType = property.PropertyType.IsCollectionType() ? property.PropertyType.GetEntityType() : property.PropertyType,
-                InversProperty = relationship
+                InverseProperty = relationship
             };
 
             return relationship;
         }
     }
 
-    public class OneToManyWithoutInversPropertyRelationshipProperty : RelationshipProperty
+    public class OneToManyWithoutInversePropertyRelationshipProperty : RelationshipProperty
     {
     }
 
-    public class OneToManyWithInversPropertyRelationshipProperty : RelationshipProperty
+    public class OneToManyWithInversePropertyRelationshipProperty : RelationshipProperty
     {
     }
 
-    public class ManyToOneWithoutInversPropertyRelationshipProperty : RelationshipProperty
+    public class ManyToOneWithoutInversePropertyRelationshipProperty : RelationshipProperty
     {
     }
 
-    public class ManyToOneWithInversPropertyRelationshipProperty : RelationshipProperty
+    public class ManyToOneWithInversePropertyRelationshipProperty : RelationshipProperty
     {
     }
 
-    public class ManyToManyWithoutInversPropertyRelationshipProperty : RelationshipProperty
+    public class ManyToManyWithoutInversePropertyRelationshipProperty : RelationshipProperty
     {
     }
 
-    public class ManyToManyWithInversPropertyRelationshipProperty : RelationshipProperty
+    public class ManyToManyWithInversePropertyRelationshipProperty : RelationshipProperty
     {
     }
 }
