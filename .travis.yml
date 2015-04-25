@@ -1,5 +1,5 @@
 language: csharp
-solution: /src/Oentities.sln
+solution: ./src/Oentities.sln
 
 install:
-  - nuget restore /src/Oentities.sln
+  - nuget restore ./src/Oentities.sln
